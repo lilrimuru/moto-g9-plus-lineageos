@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <!-- Odessa LineageOS 23.2 bring-up.
+       Device/common/kernel/bootctrl pins are the hardware-verified
+       revisions published by ARLBR10 (reference port).
+       vendor/motorola/* are intentionally NOT synced: they are private
+       upstream and are regenerated locally from the stock backup. -->
+
+  <remote name="arlbr10" fetch="https://github.com/ARLBR10/" />
+
+  <project path="device/motorola/odessa"
+           name="android_device_motorola_odessa"
+           remote="arlbr10"
+           revision="7195bc6ad25606d95a603845af8e659bdb924807" />
+
+  <project path="device/motorola/sm6150-common"
+           name="android_device_motorola_sm6150-common"
+           remote="arlbr10"
+           revision="f4088668c01cd0bec3a96520ac50823190fdd65a" />
+
+  <project path="kernel/motorola/sm6150"
+           name="android_kernel_motorola_sm6150"
+           remote="arlbr10"
+           revision="a31e2e9a5f76dcce51bdb7946f6b502ae5b423d5" />
+
+  <project path="hardware/motorola"
+           name="LineageOS/android_hardware_motorola"
+           remote="github"
+           revision="ffd5182343fb63227308f0f8b268358e3bd2a3b6" />
+
+  <!-- QTI boot control HAL fork: Motorola hybrid GPT attributes + UFS
+       boot-LUN switch (odessa A/B). -->
+  <remove-project name="LineageOS/android_hardware_qcom_bootctrl" />
+  <project path="hardware/qcom-caf/bootctrl"
+           name="android_hardware_qcom_bootctrl"
+           remote="arlbr10"
+           revision="9ccc4a788eede6830cbe0de57df3ccf373d4a002" />
+</manifest>
